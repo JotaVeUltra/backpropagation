@@ -1,4 +1,5 @@
 import numpy as np
+import textwrap as tw
 
 LIMIAR = 0
 TAXA_DE_APRENDIZADO = 0.2
@@ -65,19 +66,10 @@ h = f(t @ pesos0)
 s = f(h @ pesos1)
 np.set_printoptions(formatter={"float": lambda x: "{0:0.3f}".format(x)})
 for x, saida in enumerate(s):
-    print("Entrada:", x)
-    print(raw[x][:7])
-    print(raw[x][7:14])
-    print(raw[x][14:21])
-    print(raw[x][21:28])
-    print(raw[x][28:35])
-    print(raw[x][35:42])
-    print(raw[x][42:49])
-    print(raw[x][49:56])
-    print(raw[x][56:])
+    print(f"Entrada: {x}")
+    print("\n".join(tw.wrap(raw[x], 7)))
     print("Possiveis letras: ", end="")
     for i, letra in enumerate("ABCDEJK"):
         if saida[i] >= LIMIAR:
             print(letra, end=", ")
-    print()
-    print()
+    print("\n\n")
