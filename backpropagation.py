@@ -29,7 +29,7 @@ def f(x):
 
 def f_lin(x):
     "Backward"
-    return (1 / 2) * (1 + f(x)) * (1 - f(x))
+    return (1 / 2) * (1 + x) * (1 - x)
 
 
 with open("entrada.txt") as arquivo_entrada, open("saida.txt") as arquivo_saida:
